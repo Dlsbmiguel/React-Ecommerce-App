@@ -34,14 +34,14 @@ class SignUp extends React.Component {
         password
       );
 
+      await createUserProfileDocument(user, { displayName });
+
       this.setState({
         displayName: '',
         email: '',
         password: '',
         confirmPassword: '',
       });
-
-      await createUserProfileDocument(user, { displayName });
     } catch (error) {
       console.error(error);
     }
@@ -67,9 +67,7 @@ class SignUp extends React.Component {
             onChange={this.handleChange}
             label="Display Name"
             required
-          ></FormInput>
-        </form>
-        <form className="sign-up-form" onSubmit={this.handleSubmit}>
+          />
           <FormInput
             type="email"
             name="email"
@@ -77,9 +75,7 @@ class SignUp extends React.Component {
             onChange={this.handleChange}
             label="Email"
             required
-          ></FormInput>
-        </form>
-        <form className="sign-up-form" onSubmit={this.handleSubmit}>
+          />
           <FormInput
             type="password"
             name="password"
@@ -87,9 +83,7 @@ class SignUp extends React.Component {
             onChange={this.handleChange}
             label="Password"
             required
-          ></FormInput>
-        </form>
-        <form className="sign-up-form" onSubmit={this.handleSubmit}>
+          />
           <FormInput
             type="password"
             name="confirmPassword"
@@ -97,7 +91,7 @@ class SignUp extends React.Component {
             onChange={this.handleChange}
             label="Confirm Password"
             required
-          ></FormInput>
+          />
           <CustomButton type="submit">SIGN UP</CustomButton>
         </form>
       </div>
